@@ -23,7 +23,8 @@ class Welcome extends Component {
         }
 
         return (
-            <>
+            <div>
+                <p className="text-6xl font-bold text-red-500">This is a Tailwind Electron app success</p>
                 <h3 className="mt-5 text-center text-bold" >Welcome to Electronic Nose ITS</h3>
                 <div className="mt-3 text-center">
                     <img 
@@ -47,7 +48,7 @@ class Welcome extends Component {
                         Power On
                     </button>
                 </div>
-            </>
+            </div>
         );
     }
 }
