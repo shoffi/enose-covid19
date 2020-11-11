@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Nav from "./components/Nav";
+import TopBar from "./components/Pages/TopBar";
 import Home from "./components/Pages/Home";
 import Menu from "./components/Pages/Menu";
 import AmbilSample from "./components/Pages/AmbilSample";
@@ -118,11 +119,73 @@ class App extends Component {
     render() {
 
       return (
-        <div className="">
-
+        <div className="min-h-screen flex flex-col">
+          <TopBar></TopBar>
           <Router>
+          <div className="flex-grow">
+          
+            <Route path='/' exact>
+                <Welcome
+                  forceUpdateHandler = {this.forceUpdateHandler}
+                  connect={this.connect}
+                />
+            </Route>
+            
+            <Route path='/connect' exact>
+                <Home
+                    nurseId={this.state.nurseId}
+                    ruangId={this.state.ruangId}
+                    setNurseId={this.setNurseId}
+                    setRuangId={this.setRuangId}
+                />
+            </Route>
 
-            <Nav
+            <Route path='/menu' exact>
+                <Menu/>
+            </Route>
+            
+            <Route path='/ambil-sample' exact>
+                <AmbilSample
+                  setPatientId={this.setPatientId}
+                  nurseId={this.state.nurseId}
+                  patientId={this.state.patientId}
+                  ruangId={this.state.ruangId}
+                />
+            </Route>
+
+            <Route path='/history' exact>
+                <Menu/>
+            </Route>
+
+            <Route path='/data-baru' exact>
+                <Menu/>
+            </Route>
+
+            <Route 
+              path="/main-chart" 
+              render={(props) => (
+                <MainChart 
+                  {...props}
+                  proses1={this.state.proses1}
+                  proses2={this.state.proses2}
+                  proses3={this.state.proses3}
+                  key={0}
+                />
+              )}
+            />
+
+            <Route path='/pengaturan' exact>
+                <Pengaturan 
+                  proses1={this.state.proses1}
+                  proses2={this.state.proses2}
+                  proses3={this.state.proses3}
+                  forceUpdateHandler = {this.forceUpdateHandler}
+                />
+            </Route>
+
+          </div>
+
+          <Nav
                 isConnected={this.state.isConnected}
                 nurseId={this.state.nurseId}
                 patientId={this.state.patientId}
@@ -131,72 +194,7 @@ class App extends Component {
                 connect={this.connect}
                 disconnect={this.disconnect}
             />
-
-            <div className="container">
-            
-              <Route path='/' exact>
-                  <Welcome
-                    forceUpdateHandler = {this.forceUpdateHandler}
-                    connect={this.connect}
-                  />
-              </Route>
-              
-              <Route path='/connect' exact>
-                  <Home
-                      nurseId={this.state.nurseId}
-                      ruangId={this.state.ruangId}
-                      setNurseId={this.setNurseId}
-                      setRuangId={this.setRuangId}
-                  />
-              </Route>
-
-              <Route path='/menu' exact>
-                  <Menu/>
-              </Route>
-              
-              <Route path='/ambil-sample' exact>
-                  <AmbilSample
-                    setPatientId={this.setPatientId}
-                    nurseId={this.state.nurseId}
-                    patientId={this.state.patientId}
-                    ruangId={this.state.ruangId}
-                  />
-              </Route>
-
-              <Route path='/history' exact>
-                  <Menu/>
-              </Route>
-
-              <Route path='/data-baru' exact>
-                  <Menu/>
-              </Route>
-
-              <Route 
-                path="/main-chart" 
-                render={(props) => (
-                  <MainChart 
-                    {...props}
-                    proses1={this.state.proses1}
-                    proses2={this.state.proses2}
-                    proses3={this.state.proses3}
-                    key={0}
-                  />
-                )}
-              />
-
-              <Route path='/pengaturan' exact>
-                  <Pengaturan 
-                    proses1={this.state.proses1}
-                    proses2={this.state.proses2}
-                    proses3={this.state.proses3}
-                    forceUpdateHandler = {this.forceUpdateHandler}
-                  />
-              </Route>
-
-          </div>
-
           </Router>
-          
         </div>
       );
     }

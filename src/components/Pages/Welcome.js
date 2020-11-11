@@ -23,9 +23,25 @@ class Welcome extends Component {
         }
 
         return (
-            <div>
-                <p className="text-6xl font-bold text-red-500">This is a Tailwind Electron app success</p>
-                <h3 className="mt-5 text-center text-bold" >Welcome to Electronic Nose ITS</h3>
+            <div className="flex w-2/3 mx-auto mt-20">
+                <div className="w-64">
+                    <img src={logo} className="" alt="Logo I-Nose" />
+                </div>
+                <div>
+                    <div className="text-4xl leading-tight mb-8">
+                        <h2 className="font-light">Welcome to</h2>
+                        <h2 className="font-bold">Electronic Nose ITS</h2>
+                    </div>
+                    <button className="flex items-center justify-center border-2 border-gray-900 w-full rounded text-lg font-semibold py-2 focus:outline-none">
+                        <svg className="w-8 h-8 text-gray-900 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M7 6a7.75 7.75 0 1 0 10 0" />
+                            <line x1="12" y1="4" x2="12" y2="12" />
+                        </svg>
+                        Power on
+                    </button>
+                </div>
+                {/* <h3 className="mt-5 text-center text-bold" >Welcome to Electronic Nose ITS</h3>
                 <div className="mt-3 text-center">
                     <img 
                         src={logo}
@@ -47,7 +63,7 @@ class Welcome extends Component {
                     >
                         Power On
                     </button>
-                </div>
+                </div> */}
             </div>
         );
     }

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { FaPowerOff } from 'react-icons/fa';
-import { AiFillSetting } from 'react-icons/ai';
-import Clock from '../Clock';
+// import { AiFillSetting } from 'react-icons/ai';
+// import Clock from '../Clock';
 
 class Nav extends Component {
 
@@ -29,7 +29,20 @@ class Nav extends Component {
         
         if(nurseId !== ''){
             info_navbar =   <>
-                                <ul className="navbar-nav">
+                            <div>
+                                <span className="text-lg font-light opacity-75">Perawat</span>
+                                <p className="text-2xl font-bold">{this.props.nurseId}</p>
+                            </div>
+                            <div>
+                                <span className="text-lg font-light opacity-75">Ruangan</span>
+                                <p className="text-2xl font-bold">{this.props.ruangId}</p>
+                            </div>
+                            <div>
+                                <span className="text-lg font-light opacity-75">ID Pasien</span>
+                                <p className="text-2xl font-bold">{this.props.patientId}</p>
+                            </div>
+                            
+                                {/* <ul className="navbar-nav">
                                     <li className="nav-item active">
                                         <span className="nav-link" href="#">Perawat: {this.props.nurseId}</span>
                                     </li>
@@ -39,8 +52,8 @@ class Nav extends Component {
                                     <li className="nav-item active">
                                         <span className="nav-link" href="#">Pasien: {this.props.patientId}</span>
                                     </li>
-                                </ul>
-                            </>
+                                </ul> */}
+                        </>
         }
 
         let button_off
@@ -66,7 +79,41 @@ class Nav extends Component {
         
         return (
             <>
-                <nav 
+            {/* Bottom nav bar */}
+            <div className="flex items-center justify-between bg-gray-900">
+                <div className="flex px-4 space-x-8 leading-none text-white">
+                    {/* {this.props.rumahSakit}
+                    {info_navbar} */}
+                    <div>
+                        <span className="text-lg font-light opacity-75">Perawat</span>
+                        <p className="text-2xl font-bold">2</p>
+                    </div>
+                    <div>
+                        <span className="text-lg font-light opacity-75">Ruangan</span>
+                        <p className="text-2xl font-bold">Ruangan ICU (2)</p>
+                    </div>
+                    <div>
+                        <span className="text-lg font-light opacity-75">ID Pasien</span>
+                        <p className="text-2xl font-bold">018</p>
+                    </div>
+                </div>
+                <div className="flex">
+                    <button className="p-4 flex items-center text-xl focus:outline-none">
+                        <svg className="w-8 h-8 text-white mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <p className="text-white">Settings</p>
+                    </button>
+                    <button className="p-4 flex bg-red-600 items-center focus:outline-none text-xl">
+                        <svg className="w-8 h-8 text-white mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M7 6a7.75 7.75 0 1 0 10 0" />
+                        <line x1="12" y1="4" x2="12" y2="12" />
+                        </svg>
+                        <p className="text-white">Power</p>
+                    </button>
+                </div>
+            </div>
+
+                {/* <nav 
                     className="navbar navbar-expand-lg" 
                     style={{ 
                         backgroundColor:"#1AB0EB", 
@@ -107,7 +154,7 @@ class Nav extends Component {
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav> */}
             </>
         )
     }
